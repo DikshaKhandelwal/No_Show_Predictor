@@ -80,6 +80,6 @@ docker-compose.override.yml
 
 # Ignore any project-specific large data
 data/
-
+app.gradio
 # Keep a local ignore for the repo root if present
 # (this file is for the app/ folder; add root-level .gitignore too)

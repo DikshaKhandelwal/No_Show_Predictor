@@ -1,20 +1,28 @@
-import pickle
-from typing import Dict
+import joblib
+from app.schemas.noshow_schema import NoShowRequest, NoShowResponse
 
 MODEL_PATH = "model/model.pkl"
 
 
 def load_model(path: str = MODEL_PATH):
     try:
-        with open(path, "rb") as f:
-            return pickle.load(f)
+        return joblib.load(path)
     except Exception:
         return None
 
 
-def predict(features: Dict) -> Dict:
-    model = load_model()
-    if model is None:
-        return {"prediction": None, "error": "model_not_available"}
-    # placeholder: real code would transform features and call model.predict
-    return {"prediction": 0}
+def predict_no_show(model, inputs: NoShowRequest) -> NoShowResponse:
+    """Predict no-show probability based on input features using the loaded model."""
+    features = [
+        inputs.age,
+        inputs.gender == "Male",
+        inputs.scholorship,
+        inputs.diabetes,
+        inputs.alcoholism,
+        inputs.sms_received,
+        inputs.neighbourhood == "Jardim Botânico",
+        inputs.handicap,
+        (inputs.appointment_day - inputs.scheduled_day).days,
+    ]
+    prediction = model.predict([features])[0]
+    return NoShowResponse(no_show_probability=prediction)
