@@ -1,0 +1,85 @@
+# Ignore CSV data files
+*.csv
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+*.egg-info/
+*.egg
+*.dist-info/
+build/
+dist/
+.eggs/
+pip-wheel-metadata/
+
+# Installer logs
+pip-log.txt
+
+# Unit test / coverage reports
+*.cover
+*.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+.cache/
+.pytest_cache/
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv/
+venv.bak/
+
+# Editor directories and files
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment variable files
+.env
+.env.*
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Mypy cache
+.mypy_cache/
+
+# Pyre type checker
+.pyre/
+
+# Logs and database files
+*.log
+*.sqlite3
+*.db
+
+# Model and data artifacts
+model/
+*.pkl
+*.joblib
+*.h5
+*.pth
+*.pt
+*.bin
+
+# Docker files
+docker-compose.override.yml
+
+# Ignore any project-specific large data
+data/
+
+# Keep a local ignore for the repo root if present
+# (this file is for the app/ folder; add root-level .gitignore too)
