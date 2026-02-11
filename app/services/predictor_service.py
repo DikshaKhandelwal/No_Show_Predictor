@@ -2,6 +2,7 @@ import joblib
 from app.schemas.noshow_schema import NoShowRequest, NoShowResponse
 from app.utils.paths import BASE_DIR
 import pandas as pd
+import os
 from typing import List
 
 
@@ -20,15 +21,16 @@ except ImportError:
         return []
 
 
-MODEL_PATH = BASE_DIR / "model" / "model.pkl"
+MODEL_PATH = os.getenv("MODEL_PATH", BASE_DIR / "model" / "model.pkl")
 
 
 def load_model(path: str = MODEL_PATH):
     try:
         model = joblib.load(path)
-        print("Loaded model")
+        print(f"Loaded model from {path}")
         return model
-    except Exception:
+    except Exception as e:
+        print(f"Failed to load model from {path}: {e}")
         return None
 
 
