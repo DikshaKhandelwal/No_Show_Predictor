@@ -6,11 +6,10 @@ from datetime import datetime
 class NoShowRequest(BaseModel):
     age: int
     gender: str
-    scholorship: int
+    scholarship: int
     diabetes: int
-    alcoholism: int
+    hipertension: int
     sms_received: int
-    neighbourhood: str
     handicap: int
     scheduled_day: datetime
     appointment_day: datetime
