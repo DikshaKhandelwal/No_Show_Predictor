@@ -4,3 +4,7 @@ pydantic>=1.10.0
 pytest>=7.0.0
 scikit-learn
 pandas
+gradio
+joblib
+pytest
+pytest-cov
